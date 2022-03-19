@@ -1,0 +1,62 @@
+.header-link {
+	padding: 2% 0%;
+	margin: 0% 5%;
+	width: 15%;
+	text-align: center;
+
+	color: $secondary;
+	transition: all ease-in-out 0.3s;
+	border-bottom: 2px solid $primary;
+	&:hover {
+		border-bottom: 2px solid $secondary;
+		border-radius: 5px;
+	}
+}
+.login {
+	padding: 1% 0%;
+	width: 10%;
+	background-color: $primary;
+	text-align: center;
+	color: white;
+	transition: all ease-in-out 0.3s;
+	@media only screen and (max-width: 700px) {
+		width: 15%;
+	}
+	@media only screen and (max-width: 500px) {
+		width: 20%;
+	}
+	&:hover {
+		background-color: transparent;
+		color: $primary;
+		border-radius: 10px;
+		border: 1px solid $secondary;
+	}
+}
+
+.uparrow {
+	position: fixed;
+	left: 92%;
+	bottom: 2%;
+	font-size: 2.5rem;
+	z-index: 100;
+	cursor: pointer;
+	color: $primary;
+	height: min-content;
+
+	transition: all ease 0.3s;
+	@media only screen and (max-width: 700px) {
+		left: 90%;
+	}
+	@media only screen and (max-width: 500px) {
+		left: 85%;
+	}
+	@media only screen and (max-width: 400px) {
+		left: 80%;
+	}
+	.hide {
+		display: none;
+	}
+	.show {
+		display: block;
+	}
+}

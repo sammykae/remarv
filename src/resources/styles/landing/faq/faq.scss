@@ -1,0 +1,40 @@
+.faq-container {
+	margin-top: 5%;
+	h1 {
+		color: $primary;
+		font-size: 50px;
+		text-align: center;
+	}
+	.accordion {
+		display: grid;
+		margin: 5% 10%;
+		grid-template-columns: 1fr 1fr;
+		justify-content: center;
+		@media only screen and (max-width: 900px) {
+			grid-template-columns: 1fr;
+			margin: 5% 2%;
+		}
+		.accordion-item {
+			.accordion-title {
+				border: 2px solid $secondary;
+				border-radius: 10px;
+				padding: 0.7rem;
+				margin: 1%;
+				color: $secondary;
+				cursor: pointer;
+				box-sizing: border-box;
+				@media only screen and (max-width: 530px) {
+					font-size: 12px;
+				}
+			}
+			.accordion-content {
+				border-left: 5px solid $primary;
+				padding: 1rem 1.3rem;
+				margin-left: 1.5%;
+				border-radius: 5px;
+				box-shadow: 1px 1px 10px grey;
+				width: 96%;
+			}
+		}
+	}
+}

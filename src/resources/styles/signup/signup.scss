@@ -1,0 +1,81 @@
+.signup-container {
+	// min-height: 70vh;
+	.signup {
+		background: linear-gradient(to right, $secondary, $primary);
+		min-height: 50vh;
+		padding: 10vh 0;
+		box-sizing: content-box;
+		.signup-form {
+			margin: auto;
+			width: 60vw;
+			padding: 2% 3%;
+			background-color: rgba(255, 255, 255, 0.7);
+			border-radius: 10px;
+			@media only screen and (max-width: 1279px) {
+				width: 80vw;
+			}
+			@media only screen and (max-width: 935px) {
+				width: 95vw;
+			}
+			.input-container {
+				display: flex;
+				gap: 3%;
+				@media only screen and (max-width: 700px) {
+					flex-direction: column;
+				}
+			}
+			.text {
+				text-align: center;
+				h1 {
+					color: $secondary;
+				}
+				p {
+					color: grey;
+				}
+			}
+
+			form {
+				.form-control {
+					padding: 0.8em;
+					margin: 2% 0%;
+					border: 2px solid white;
+					border-radius: 10px;
+					background-color: white;
+					outline: none;
+					width: 100%;
+				}
+
+				.signin-link {
+					text-decoration: none;
+					cursor: pointer;
+					color: $secondary;
+					width: max-content;
+					transition: all ease-in-out 0.3s;
+					&:hover {
+						transition: all ease-in-out 0.3s;
+
+						text-decoration: underline;
+					}
+				}
+				.btn-container {
+					text-align: center;
+					.btn-signup {
+						margin: 2% 0%;
+						width: 30%;
+						font-size: 18px;
+						border-radius: 10px;
+						background-color: $secondary;
+						color: white;
+						transition: all ease 0.3s;
+						box-shadow: none;
+						cursor: pointer;
+						&:hover {
+							transition: all ease 0.3s;
+							background-color: $primary;
+						}
+					}
+				}
+			}
+		}
+	}
+}

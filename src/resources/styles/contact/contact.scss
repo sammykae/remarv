@@ -1,0 +1,111 @@
+.contact-container {
+	margin: 12vh 0;
+	.top {
+		margin: 2% 0%;
+		text-align: center;
+		text-transform: uppercase;
+	}
+	.contact-body {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 5%;
+		@media only screen and (max-width: 800px) {
+			grid-template-columns: 1fr;
+			gap: 0%;
+		}
+		h1 {
+			text-align: center;
+		}
+		form {
+			display: grid;
+			margin: 2% 5%;
+			@media only screen and (max-width: 800px) {
+				margin: 2% 2%;
+			}
+
+			.enquiry-btn {
+				margin: 2% 0%;
+				border: none;
+				font-size: 18px;
+				padding: 0.6rem 1rem;
+				border-radius: 10px;
+				background-color: $secondary;
+				color: white;
+				transition: all ease 0.3s;
+				cursor: pointer;
+				&:hover {
+					transition: all ease 0.3s;
+					color: white;
+					background-color: $primary;
+				}
+			}
+			#message {
+				resize: none;
+			}
+			.form-control {
+				padding: 1em;
+				margin: 1% 0%;
+				border: 1px solid rgb(126, 124, 124);
+				border-radius: 10px;
+				background-color: transparent;
+				outline: none;
+				color: $secondary;
+				transition: all ease 0.5s;
+				&:focus {
+					transition: all ease 0.5s;
+					background-color: white;
+				}
+			}
+			.name-email {
+				display: grid;
+				grid-template-columns: 1fr 1fr;
+				gap: 2%;
+
+				@media only screen and (max-width: 400px) {
+					grid-template-columns: 1fr;
+				}
+			}
+		}
+		.contacts {
+			.contact {
+				display: grid;
+				grid-template-columns: 1fr 1fr;
+				@media only screen and (max-width: 400px) {
+					grid-template-columns: 1fr;
+				}
+				.contact-info {
+					text-align: center;
+					margin-top: 8%;
+					.icon {
+						color: $secondary;
+						text-align: center;
+						span {
+							font-size: 40px;
+						}
+					}
+
+					h3 {
+						color: $primary;
+					}
+					p,
+					a {
+						color: grey;
+						text-decoration: none;
+					}
+					.social {
+						display: flex;
+						justify-content: center;
+						gap: 5%;
+						font-size: 20px;
+						a {
+							color: $secondary;
+							&:hover {
+								color: $primary;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

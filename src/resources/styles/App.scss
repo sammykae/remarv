@@ -1,0 +1,55 @@
+$primary: #fcce33;
+$secondary: #ad0042;
+* {
+	font-family: "Thasadith";
+	box-sizing: border-box;
+	padding: 0px;
+	margin: 0px;
+	a {
+		text-decoration: none;
+	}
+	.content {
+		margin-top: 10vh;
+		transition: all ease-in-out 0.3s;
+		@media only screen and (max-width: 900px) {
+			margin-top: 8vh;
+		}
+	}
+	//Spinner
+	.lds-dual-ring {
+		width: 100vw;
+		height: 70vh;
+		margin: auto;
+		padding-top: 15vh;
+	}
+	.lds-dual-ring:after {
+		content: " ";
+		display: block;
+		width: 10vw;
+		height: 10vw;
+		margin: 8px;
+		margin: auto;
+		border-radius: 50%;
+		border: 6px solid #ad0042;
+		border-color: #ad0042 transparent #ad0042 transparent;
+		animation: lds-dual-ring 1.2s linear infinite;
+	}
+	@keyframes lds-dual-ring {
+		0% {
+			transform: rotate(0deg);
+		}
+		100% {
+			transform: rotate(360deg);
+		}
+	}
+}
+
+@import "./header/header.scss";
+@import "./landing/landing.scss";
+@import "./contact/contact.scss";
+@import "./footer/footer.scss";
+@import "./signin/signin.scss";
+@import "./signup/signup.scss";
+@import "./about/about.scss";
+@import "./products/products.scss";
+@import "./profile/profile.scss";

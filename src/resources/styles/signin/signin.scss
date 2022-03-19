@@ -1,0 +1,82 @@
+.signin-container {
+	.signin {
+		background: linear-gradient(to right, $secondary, $primary);
+		background-repeat: no-repeat;
+		background-position: top;
+		background-size: cover;
+		min-height: 50vh;
+		padding: 10vh 0;
+		.signin-form {
+			margin: auto;
+			width: 40vw;
+			padding: 2% 3%;
+			background-color: rgba(255, 255, 255, 0.7);
+			border-radius: 10px;
+			@media only screen and (max-width: 1000px) {
+				width: 70vw;
+			}
+			@media only screen and (max-width: 550px) {
+				width: 90vw;
+			}
+			.text {
+				text-align: center;
+				h1 {
+					color: $secondary;
+				}
+			}
+
+			form {
+				.form-control {
+					padding: 0.8em;
+					margin: 2% 0%;
+					border: none;
+					border-radius: 10px;
+					background-color: white;
+					outline: none;
+					width: 100%;
+				}
+				.other-links {
+					display: flex;
+					justify-content: space-between;
+					gap: 1%;
+					@media only screen and (max-width: 400px) {
+						flex-direction: column;
+					}
+					.reset-link,
+					.signup-link {
+						text-decoration: none;
+						cursor: pointer;
+						color: $secondary;
+						transition: all ease-in-out 0.5s;
+						@media only screen and (max-width: 400px) {
+							margin: 2% 0;
+						}
+						&:hover {
+							text-decoration: underline;
+						}
+					}
+				}
+
+				.btn-container {
+					text-align: center;
+					.btn-signin {
+						margin: 2% 0%;
+						width: 30%;
+
+						font-size: 18px;
+						border-radius: 10px;
+						background-color: $secondary;
+						color: white;
+						transition: all ease 0.3s;
+						box-shadow: none;
+						cursor: pointer;
+						&:hover {
+							transition: all ease 0.3s;
+							background-color: $primary;
+						}
+					}
+				}
+			}
+		}
+	}
+}

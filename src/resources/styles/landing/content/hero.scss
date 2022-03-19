@@ -1,0 +1,67 @@
+.hero {
+	background-image: linear-gradient(
+			to right,
+			rgba(20, 20, 20, 0.4),
+			rgba(36, 36, 34, 0.4)
+		),
+		url("../../../images/hero-image.jpg");
+	background-size: cover;
+	background-position: top;
+	background-size: cover;
+	height: 70vh;
+	z-index: -100;
+	transition: all ease-in-out 0.3s;
+	@media only screen and (max-width: 452px) {
+		height: 40vh;
+	}
+	.hero-content {
+		padding-top: 10%;
+		@media only screen and (max-width: 814px) {
+			padding-top: 15%;
+		}
+		@media only screen and (max-width: 500px) {
+			padding-top: 20%;
+		}
+
+		.body {
+			width: 50%;
+			text-align: center;
+			margin: auto;
+			@media only screen and (max-width: 814px) {
+				width: 90%;
+			}
+			.heading {
+				text-transform: uppercase;
+				font-size: 50px;
+				color: $primary;
+				align-self: center;
+				margin: 2% 0;
+				@media only screen and (max-width: 452px) {
+					font-size: 35px;
+				}
+			}
+			.details {
+				text-transform: capitalize;
+				font-size: 20px;
+				color: white;
+			}
+			.link {
+				margin: 5% 0%;
+				a {
+					background-color: $secondary;
+					padding: 2% 3%;
+					text-decoration: none;
+					border-radius: 5px;
+					color: white;
+					transition: all ease 0.3s;
+
+					&:hover {
+						transition: all ease 0.3s;
+						background-color: $primary;
+						color: black;
+					}
+				}
+			}
+		}
+	}
+}

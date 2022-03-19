@@ -1,0 +1,48 @@
+.why-container {
+	margin: 5% 0%;
+	box-sizing: content-box;
+	h1 {
+		font-size: 50px;
+		text-align: center;
+		color: $primary;
+	}
+	.why {
+		margin: 2% 5%;
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 2%;
+
+		@media only screen and (max-width: 1200px) {
+			grid-template-columns: 1fr 1fr;
+			gap: 10% 2%;
+		}
+		@media only screen and (max-width: 900px) {
+			grid-template-columns: 1fr;
+			margin-bottom: 20%;
+		}
+		@media only screen and (max-width: 500px) {
+			margin-bottom: 30%;
+		}
+		@media only screen and (max-width: 400px) {
+			margin-bottom: 40%;
+		}
+		.reason {
+			box-shadow: 1px 1px 15px grey;
+			border-radius: 10px;
+			padding: 2% 5%;
+			.icon {
+				text-align: center;
+				font-size: 50px;
+				color: $secondary;
+			}
+			h2 {
+				text-align: center;
+				color: $primary;
+			}
+			.text {
+				text-align: center;
+				color: $secondary;
+			}
+		}
+	}
+}
