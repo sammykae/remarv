@@ -5,9 +5,10 @@ import Modal from "@mui/material/Modal";
 import Fade from "@mui/material/Fade";
 import { Typography } from "@mui/material";
 import CartItem from "../cartitem/CartItem";
-import { doc, getDoc, getFirestore } from "firebase/firestore";
+import { doc, onSnapshot, getFirestore } from "firebase/firestore";
 import app from "../../config/fire";
 import { toast } from "react-toastify";
+import CartSummary from "../cartitem/CartSummary";
 const db = getFirestore(app);
 const styles = {
 	position: "absolute",
@@ -25,17 +26,26 @@ const CartModal = ({ user, open, handleClose }) => {
 	const [data, setData] = useState(null);
 	const GetData = () => {
 		if (user.email) {
-			getDoc(doc(db, "users", user.email))
-				.then((docSnap) => {
-					setData(docSnap.data().cart);
-				})
-				.catch((error) => {
-					toast.error(`${error.code}. Try Again.`);
-				});
+			onSnapshot(
+				doc(db, "users", user.email),
+				{ includeMetadataChanges: true },
+				(doc) => {
+					const source = doc.metadata.hasPendingWrites ? "Local" : "Server";
+
+					if (source === "Server") {
+						if (doc.data()) {
+							setData(doc.data().cart);
+						} else {
+							toast.error("Unable To Get Cart Data Please Refresh");
+						}
+					}
+				}
+			);
 		}
 	};
 
-	useEffect(GetData, [GetData]);
+	useEffect(GetData, [user]);
+
 	return (
 		<div>
 			<Modal
@@ -81,8 +91,9 @@ const CartModal = ({ user, open, handleClose }) => {
 									gridTemplateColumns: { md: "1fr 1fr" },
 								}}
 							>
-								{data !== null
-									? data.map((item) => {
+								{data !== null ? (
+									data.length !== 0 ? (
+										data.map((item) => {
 											return (
 												<CartItem
 													setData={setData}
@@ -91,18 +102,31 @@ const CartModal = ({ user, open, handleClose }) => {
 													item={item}
 												/>
 											);
-									  })
-									: null}
+										})
+									) : (
+										<Typography variant="h5" align="center" m={"3%"}>
+											No Item In Cart
+										</Typography>
+									)
+								) : (
+									<Typography variant="h5" align="center" m={"3%"}>
+										No Item In Cart
+									</Typography>
+								)}
 							</Box>
 							<Box
 								maxWidth="sm"
 								sx={{
-									background: "red",
 									m: "2% auto",
+									p: "1% 2%",
 									borderRadius: 1,
+									boxShadow: 2,
 								}}
 							>
-								<Typography align="center">Cart Summary</Typography>
+								<Typography variant="h4" align="center">
+									Cart Summary
+								</Typography>
+								<CartSummary data={data} />
 							</Box>
 						</Box>
 					</Box>

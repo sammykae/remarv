@@ -44,12 +44,12 @@ const CartItem = ({ data, item }) => {
 		},
 	});
 
-	const handleDelete = async (itemid) => {
+	const handleDelete = (itemid) => {
 		var newData = data.filter((d) => {
 			return d.id !== itemid;
 		});
 
-		await setDoc(
+		setDoc(
 			doc(db, "users", auth.currentUser.email),
 			{
 				cart: newData,
@@ -67,7 +67,7 @@ const CartItem = ({ data, item }) => {
 	const Add = async (itemid) => {
 		var newData = data.map((d) => {
 			if (d.id === itemid) {
-				return { ...d, qty: String(Number(d.qty) + 1) };
+				return { ...d, qty: d.qty + 1 };
 			} else {
 				return d;
 			}
@@ -88,7 +88,7 @@ const CartItem = ({ data, item }) => {
 	const Sub = async (itemid) => {
 		var newData = data.map((d) => {
 			if (d.id === itemid && d.qty > 1) {
-				return { ...d, qty: String(Number(d.qty) - 1) };
+				return { ...d, qty: d.qty - 1 };
 			} else {
 				return d;
 			}
@@ -134,7 +134,11 @@ const CartItem = ({ data, item }) => {
 						{item.name}
 					</Typography>
 					<Typography sx={{ alignSelf: "center" }} variant="h6" color="text">
-						&#8358; {item.price}
+						&nbsp;
+						{item.price.toLocaleString("en-NG", {
+							style: "currency",
+							currency: "NGN",
+						})}
 					</Typography>
 				</Box>
 

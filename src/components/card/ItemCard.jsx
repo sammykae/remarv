@@ -55,7 +55,7 @@ const ItemCard = ({ user, item, loggedIn }) => {
 										{
 											id: item.id,
 											name: item.name,
-											qty: "1",
+											qty: 1,
 											price: item.price,
 											img_url: item.img_url,
 										},
@@ -107,7 +107,11 @@ const ItemCard = ({ user, item, loggedIn }) => {
 					</Typography>
 					<Box sx={{ display: "flex", alignItems: "center" }}>
 						<Typography variant="h6" color="text" sx={{ flexGrow: 1 }}>
-							Price: &nbsp;&#8358;{item.price}
+							Price:&nbsp;
+							{item.price.toLocaleString("en-NG", {
+								style: "currency",
+								currency: "NGN",
+							})}
 						</Typography>
 						{loading ? (
 							<LoadingButton size="medium" loading={loading} />
