@@ -126,7 +126,7 @@ const CartModal = ({ user, open, handleClose }) => {
 								<Typography variant="h4" align="center">
 									Cart Summary
 								</Typography>
-								<CartSummary data={data} />
+								<CartSummary user={user} data={data} />
 							</Box>
 						</Box>
 					</Box>

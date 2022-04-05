@@ -1,8 +1,9 @@
 import { Typography, Box } from "@mui/material";
 import React from "react";
-import { Button } from "@mui/material";
+
 import { ThemeProvider, createTheme } from "@mui/material/styles";
-const CartSummary = ({ data }) => {
+import Payment from "../payment/Payment";
+const CartSummary = ({ user, data }) => {
 	const finalTheme = createTheme({
 		components: {
 			// Name of the component
@@ -37,13 +38,21 @@ const CartSummary = ({ data }) => {
 		},
 	});
 
-	let total = 0;
+	let pay = 0;
 	if (data !== null && data.length !== 0) {
 		data.map((d) => {
-			return (total += d.price * d.qty);
+			return (pay += d.price * d.qty);
 		});
 	}
-	total = total.toLocaleString("en-NG", {
+
+	//PayStack Config
+	const config = {
+		// reference: new Date().getTime().toString(),
+		email: user !== null ? user.email : "test@gmail.com",
+		amount: pay * 100,
+	};
+
+	let total = pay.toLocaleString("en-NG", {
 		style: "currency",
 		currency: "NGN",
 	});
@@ -72,9 +81,14 @@ const CartSummary = ({ data }) => {
 			>
 				<ThemeProvider theme={finalTheme}>
 					<span style={{ cursor: "not-allowed" }}>
-						<Button disabled={data.length === 0 ? true : false}>
+						<Payment
+							postSuccess={() => alert("Payment Successful")}
+							config={config}
+							data={data}
+						/>
+						{/* <Button disabled={data.length === 0 ? true : false}>
 							Checkout
-						</Button>
+						</Button> */}
 					</span>
 				</ThemeProvider>
 			</Box>
